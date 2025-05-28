@@ -6,56 +6,56 @@ export default function CopyButton({ signatureHtml }) {
   const [copied, setCopied] = useState(false);
   const [codeCopied, setCodeCopied] = useState(false);
   
-  const handleCopySignature = () => {
+  const handleCopySignature = async () => {
     if (!signatureHtml) {
       alert('Rien à copier : la signature est vide.');
       return;
     }
-    
-    // Méthode simple avec textarea
-    const textarea = document.createElement('textarea');
-    textarea.value = signatureHtml;
-    document.body.appendChild(textarea);
-    textarea.select();
-    
+
     try {
-      const success = document.execCommand('copy');
-      console.log('Copie signature réussie:', success);
-      
-      // Afficher le message même si on n'est pas sûr
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(signatureHtml);
+      } else {
+        // Fallback pour les anciens navigateurs
+        const textarea = document.createElement('textarea');
+        textarea.value = signatureHtml;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     } catch (error) {
       console.error('Erreur:', error);
       alert('Erreur lors de la copie');
-    } finally {
-      document.body.removeChild(textarea);
     }
   };
 
-  const handleCopyCode = () => {
+  const handleCopyCode = async () => {
     if (!signatureHtml) {
       alert('Rien à copier : la signature est vide.');
       return;
     }
 
-    // Copier juste le texte brut du code HTML
-    const textarea = document.createElement('textarea');
-    textarea.value = signatureHtml;
-    document.body.appendChild(textarea);
-    textarea.select();
-    
     try {
-      const success = document.execCommand('copy');
-      console.log('Copie code réussie:', success);
-      
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(signatureHtml);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = signatureHtml;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+
       setCodeCopied(true);
       setTimeout(() => setCodeCopied(false), 3000);
     } catch (error) {
       console.error('Erreur:', error);
       alert('Erreur lors de la copie du code');
-    } finally {
-      document.body.removeChild(textarea);
     }
   };
   
