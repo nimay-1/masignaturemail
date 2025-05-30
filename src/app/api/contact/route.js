@@ -21,9 +21,9 @@ export async function POST(req) {
 
     // 📬 Envoi email
     await resend.emails.send({
-      from: '"Ma Signature Mail" <contact@contact.masignaturemail.com>', // ← À garder si ton domaine est vérifié
-      to: 'contact@masignaturemail.com', // ← Là où tu reçois le message
-      replyTo: email, // ✅ Clé magique pour répondre au visiteur
+      from: '"Ma Signature Mail" <contact@contact.masignaturemail.com>',
+      to: 'contact@masignaturemail.com',
+      replyTo: email,
       subject: `📝 ${subject}`,
       html: `
         <p><strong>Nom :</strong> ${name}</p>
