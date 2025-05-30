@@ -50,7 +50,7 @@ export default function HowItWorks() {
           </h2>
           <p className="text-[var(--color-muted)] text-lg max-w-2xl mx-auto leading-relaxed">
             Notre processus simplifié vous permet de créer une signature professionnelle 
-            en <strong className="text-[var(--color-primary)]">moins d'une minute</strong>. Aucune compétence technique requise.
+            en <strong className="text-[var(--color-primary)]">moins d&apos;une minute</strong>. Aucune compétence technique requise.
           </p>
         </div>
 

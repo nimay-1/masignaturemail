@@ -26,7 +26,7 @@ export default function LegalNoticePage() {
             Mentions Légales
           </h1>
           <p className="text-[var(--color-muted)] text-lg max-w-2xl mx-auto leading-relaxed">
-            Informations légales minimales conformément à la <strong className="text-[var(--color-foreground)]">Loi pour la Confiance dans l'Économie Numérique (LCEN)</strong>. 
+            Informations légales minimales conformément à la <strong className="text-[var(--color-foreground)]">Loi pour la Confiance dans l&apos;Économie Numérique (LCEN)</strong>. 
             Confidentialité et protection des données personnelles garanties.
           </p>
           <div className="mt-6 text-sm text-[var(--color-muted)]">
@@ -62,7 +62,7 @@ export default function LegalNoticePage() {
                 </div>
                 <div>
                   <strong className="text-[var(--color-foreground)]">Numéro SIRET :</strong><br />
-                  <em className="text-sm">En cours d'obtention</em>
+                  <em className="text-sm">En cours d&apos;obtention</em>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function LegalNoticePage() {
           </h2>
           <div className="space-y-6 text-[var(--color-muted)]">
             <div>
-              <h3 className="font-medium text-[var(--color-foreground)] mb-3">Droits d'auteur</h3>
+              <h3 className="font-medium text-[var(--color-foreground)] mb-3">Droits d&apos;auteur</h3>
               <p className="leading-relaxed">
                 L'ensemble du contenu présent sur le site Ma Signature Mail (textes, images, vidéos, design, code source, logos, etc.) est protégé par les droits d'auteur et constitue une œuvre de l'esprit protégée par les dispositions du Code de la Propriété Intellectuelle française et les conventions internationales.
               </p>
@@ -242,7 +242,7 @@ export default function LegalNoticePage() {
               <ul className="space-y-2">
                 <li>• <strong>Cookies fonctionnels :</strong> Mémorisation de vos préférences (thème, langue)</li>
                 <li>• <strong>Cookies analytiques :</strong> Google Analytics (anonymisé) pour les statistiques de visite</li>
-                <li>• <strong>Aucun cookie publicitaire</strong> ou de profilage n'est utilisé</li>
+                <li>• <strong>Aucun cookie publicitaire</strong> ou de profilage n&apos;est utilisé</li>
               </ul>
             </div>
             <div>
