@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { AboutHero } from '../../../components/pages/About/AboutHero';
 import { AboutStats } from '../../../components/pages/About/AboutStats';
