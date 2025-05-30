@@ -244,7 +244,7 @@ export default function TermsOfServicePage() {
               <strong>Dernière mise à jour :</strong> {lastUpdate}
             </div>
             <div>
-              <strong>Date d'entrée en vigueur :</strong> {effectiveDate}
+              <strong>Date d&apos;entrée en vigueur :</strong> {effectiveDate}
             </div>
           </div>
         </header>
@@ -265,7 +265,7 @@ export default function TermsOfServicePage() {
                 <li>• Créer des signatures personnelles/pro</li>
                 <li>• Conserver vos droits sur vos contenus</li>
                 <li>• Utiliser les signatures générées librement</li>
-                <li>• Arrêter d'utiliser le service à tout moment</li>
+                <li>• Arrêter d&apos;utiliser le service à tout moment</li>
               </ul>
             </div>
             <div>

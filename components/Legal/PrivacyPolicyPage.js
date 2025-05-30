@@ -169,7 +169,7 @@ export default function PrivacyPolicyPage() {
             Politique de Confidentialité
           </h1>
           <p className="text-[var(--color-muted)] text-lg max-w-2xl mx-auto leading-relaxed">
-            Ma Signature Mail respecte votre vie privée. <strong className="text-[var(--color-foreground)]">Aucune donnée personnelle n'est stockée</strong> sur nos serveurs. 
+            Ma Signature Mail respecte votre vie privée. <strong className="text-[var(--color-foreground)]">Aucune donnée personnelle n&apos;est stockée</strong> sur nos serveurs. 
             Tout reste sur votre appareil.
           </p>
           <div className="mt-6 text-sm text-[var(--color-muted)]">
