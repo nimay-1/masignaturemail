@@ -1,5 +1,3 @@
-// generateSignatureHTML.js
-
 function getTableAttributes(emailClient) {
   switch (emailClient) {
     case 'outlook':

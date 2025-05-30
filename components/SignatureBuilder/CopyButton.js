@@ -1,88 +1,77 @@
-'use client';
 import React, { useState } from 'react';
 import Button from '../ui/Button';
+import Toast from '../ui/Toast';
 
 export default function CopyButton({ signatureHtml }) {
   const [copied, setCopied] = useState(false);
   const [codeCopied, setCodeCopied] = useState(false);
-  
-  const handleCopySignature = () => {
-    if (!signatureHtml) {
-      alert('Rien à copier : la signature est vide.');
-      return;
-    }
-    
-    // Méthode simple avec textarea
-    const textarea = document.createElement('textarea');
-    textarea.value = signatureHtml;
-    document.body.appendChild(textarea);
-    textarea.select();
-    
+
+  const showToast = (setter) => {
+    setter(true);
+    setTimeout(() => setter(false), 3000);
+  };
+
+  const handleCopySignature = async () => {
+    if (!signatureHtml) return alert('Rien à copier.');
     try {
-      const success = document.execCommand('copy');
-      console.log('Copie signature réussie:', success);
-      
-      // Afficher le message même si on n'est pas sûr
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
-    } catch (error) {
-      console.error('Erreur:', error);
-      alert('Erreur lors de la copie');
-    } finally {
-      document.body.removeChild(textarea);
+      if (navigator.clipboard && window.ClipboardItem) {
+        await navigator.clipboard.write([
+          new ClipboardItem({
+            'text/html': new Blob([signatureHtml], { type: 'text/html' }),
+            'text/plain': new Blob([signatureHtml], { type: 'text/plain' }),
+          }),
+        ]);
+      } else {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = signatureHtml;
+        tempDiv.style.position = 'absolute';
+        tempDiv.style.left = '-9999px';
+        tempDiv.contentEditable = 'true';
+        document.body.appendChild(tempDiv);
+
+        const range = document.createRange();
+        range.selectNodeContents(tempDiv);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        document.execCommand('copy');
+        sel.removeAllRanges();
+        document.body.removeChild(tempDiv);
+      }
+
+      showToast(setCopied);
+    } catch (err) {
+      alert('Erreur de copie');
     }
   };
 
-  const handleCopyCode = () => {
-    if (!signatureHtml) {
-      alert('Rien à copier : la signature est vide.');
-      return;
-    }
-
-    // Copier juste le texte brut du code HTML
-    const textarea = document.createElement('textarea');
-    textarea.value = signatureHtml;
-    document.body.appendChild(textarea);
-    textarea.select();
-    
+  const handleCopyCode = async () => {
+    if (!signatureHtml) return alert('Rien à copier.');
     try {
-      const success = document.execCommand('copy');
-      console.log('Copie code réussie:', success);
-      
-      setCodeCopied(true);
-      setTimeout(() => setCodeCopied(false), 3000);
-    } catch (error) {
-      console.error('Erreur:', error);
-      alert('Erreur lors de la copie du code');
-    } finally {
-      document.body.removeChild(textarea);
+      await navigator.clipboard.writeText(signatureHtml);
+      showToast(setCodeCopied);
+    } catch (err) {
+      alert('Erreur copie code');
     }
   };
-  
+
   return (
-    <div className="space-y-3">
-      <div className="grid grid-cols-2 gap-3">
-        <Button onClick={handleCopySignature} className="text-sm">
-          📋 Signature
-        </Button>
-        <Button 
-          onClick={handleCopyCode}
-          className="text-sm border border-[var(--color-accent)] bg-transparent text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-[var(--color-primary)] transition-colors"
-        >
-          &lt;/&gt; Code
-        </Button>
-      </div>
+    <div className="space-y-2 flex flex-col items-center">
+      <Button onClick={handleCopySignature} className="min-w-60 text-sm" variant="primary">
+        Copier la signature
+      </Button>
 
-      {copied && (
-        <div className="text-green-600 text-sm font-medium text-center bg-green-50 p-2 rounded-lg border border-green-200">
-          ✅ Signature copiée !
-        </div>
-      )}
-      {codeCopied && (
-        <div className="text-blue-600 text-sm font-medium text-center bg-blue-50 p-2 rounded-lg border border-blue-200">
-          ✅ Code HTML copié !
-        </div>
-      )}
+      <Button
+        onClick={handleCopyCode}
+        className="min-w-60 text-sm"
+        variant="secondary"
+      >
+        &lt;/&gt; Copier le code HTML
+      </Button>
+
+      {/* Toasts */}
+      <Toast visible={copied} message="✅ Signature copiée !" type="success" />
+      <Toast visible={codeCopied} message="✅ Code HTML copié !" type="info" />
     </div>
   );
 }
