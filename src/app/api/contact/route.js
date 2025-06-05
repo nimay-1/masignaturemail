@@ -9,7 +9,6 @@ export async function POST(req) {
     const body = await req.json()
     const { name, email, subject, message } = body
 
-    // ✅ Validation
     if (
       !validator.isLength(name, { min: 2, max: 50 }) ||
       !validator.isEmail(email) ||

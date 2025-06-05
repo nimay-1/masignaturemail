@@ -1,8 +1,8 @@
-import Hero from "../../../components/pages/Home/Hero";
-import WhySignature from "../../../components/pages/Home/WhySignature";
-import HowItWorks from "../../../components/pages/Home/HowItWorks";
-import SignatureBuilder from "../../../components/pages/Home/SignatureBuilder";
-import FaqSection from "../../../components/pages/Home/FaqSection";
+import Hero from "../../components/pages/Home/Hero";
+import WhySignature from "../../components/pages/Home/WhySignature";
+import HowItWorks from "../../components/pages/Home/HowItWorks";
+import SignatureBuilder from "../../components/pages/Home/SignatureBuilder";
+import FaqSection from "../../components/pages/Home/FaqSection";
 
 export const metadata = {
   title: "Ma Signature Mail – Générez votre signature email gratuite",
