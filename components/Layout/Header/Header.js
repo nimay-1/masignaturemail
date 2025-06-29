@@ -29,7 +29,7 @@ export default function Header() {
               <NavLink href="/contact">Contact</NavLink>
             </div>
             <div className="ml-8 flex items-center space-x-4">
-              <ButtonNavLink href="home/#main">
+              <ButtonNavLink href="/">
                 <Button size="sm">
                   Commencer gratuitement
                 </Button>
