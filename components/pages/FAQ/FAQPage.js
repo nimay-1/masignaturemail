@@ -149,7 +149,6 @@ export default function FAQPage() {
             />
           </FAQSection>
 
-          <FAQCta />
         </div>
       </main>
     </>

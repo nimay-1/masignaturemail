@@ -54,7 +54,6 @@ export default function PricingPage() {
           <PricingComparison />
           <PricingFeatures />
           <PricingFAQ />
-          <PricingCTA />
         </div>
       </main>
     </>

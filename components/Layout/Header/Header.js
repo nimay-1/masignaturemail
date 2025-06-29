@@ -11,7 +11,7 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/home" className="group block">
+            <Link href="/" className="group block">
               <img
                 src="/logo_msm_long_dark.webp"
                 alt="Logo Ma Signature Mail - Générateur signature email gratuit"
@@ -23,7 +23,7 @@ export default function Header() {
           {/* Navigation desktop */}
           <nav className="hidden md:flex md:items-center md:space-x-8">
             <div className="flex items-center space-x-6">
-              <NavLink href="/home">Accueil</NavLink>
+              <NavLink href="/">Accueil</NavLink>
               <NavLink href="/pricing">Tarification</NavLink>
               <NavLink href="/faq">FAQ</NavLink>
               <NavLink href="/contact">Contact</NavLink>
